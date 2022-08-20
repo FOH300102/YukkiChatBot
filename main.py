@@ -43,7 +43,16 @@ async def init():
         if await mongo.is_banned_user(message.from_user.id):
             return
         await mongo.add_served_user(message.from_user.id)
-        await message.reply_text(config.PRIVATE_START_MESSAGE)
+        return
+            start_msg = f"Hi bastard! 👤{mention},\
+                        \nWhat are you doing here?.\
+                        \nYou can contact to my master from here.\
+                        \n\n👨🏻‍💻 Powered by [𝙆𝙀𝙆 𝕏 𝙋𝙧𝙤𝙟𝙚𝙘𝙩𝙨](https://t.me/KEK_Projects)"
+        buttons = [
+            (
+                Button.url("Endorsement", "https://sociabuzz.com/iniokekk/tribe"),
+            )
+        ]
 
     @app.on_message(
         filters.command("mode") & filters.user(SUDO_USERS)
