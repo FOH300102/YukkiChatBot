@@ -47,7 +47,7 @@ async def init():
         
     @app.on_message(filters.command("donate") & filters.user(SUDO_USERS))
 async def donate_func(_, message: Message):
-    await message.reply_sticker(
+      return await message.reply_sticker(
         sticker="CAACAgIAAx0CVBD5pAACN5VjAqGYgoyg-OXjf0lNy0lgmhH37wACIAADlp-MDqz9QTP0qm_5HgQ",
         caption="""""",
     reply_markup=InlineKeyboardMarkup(
