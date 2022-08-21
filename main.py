@@ -46,7 +46,7 @@ async def init():
         await message.reply_text(config.PRIVATE_START_MESSAGE)
         
     @app.on_message(command("donate") & filters.private & ~filters.group)
-async def donate_command(_, message: Message):
+async def donate.command(_, message: Message):
     await message.reply_sticker(
         sticker="CAACAgIAAx0CVBD5pAACN5VjAqGYgoyg-OXjf0lNy0lgmhH37wACIAADlp-MDqz9QTP0qm_5HgQ",
         caption="""""",
