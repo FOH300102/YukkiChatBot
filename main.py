@@ -44,7 +44,21 @@ async def init():
             return
         await mongo.add_served_user(message.from_user.id)
         await message.reply_text(config.PRIVATE_START_MESSAGE)
-
+        
+    @Client.on_message(command("start") & filters.private & ~filters.group & ~filters.edited)
+async def start_(client: Client, message: Message):
+    await message.reply_sticker(
+        sticker="CAACAgIAAx0CVBD5pAACN5VjAqGYgoyg-OXjf0lNy0lgmhH37wACIAADlp-MDqz9QTP0qm_5HgQ",
+        caption="""""",
+    reply_markup=InlineKeyboardMarkup(
+                [
+                    InlineKeyboardButton(
+                        "Endorsement", url="https://sociabuzz.com/iniokekkk/tribe"
+                       ),
+                  ]
+             )
+    )
+    
     @app.on_message(
         filters.command("mode") & filters.user(SUDO_USERS)
     )
