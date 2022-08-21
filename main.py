@@ -45,7 +45,7 @@ async def init():
         await mongo.add_served_user(message.from_user.id)
         await message.reply_text(config.PRIVATE_START_MESSAGE)
         
-    @app.on_message(command("donate") & filters.private & ~filters.group)
+    @app.on_message(filters.command("donate") & filters.user(SUDO_USERS))
 async def donate.command(_, message: Message):
     await message.reply_sticker(
         sticker="CAACAgIAAx0CVBD5pAACN5VjAqGYgoyg-OXjf0lNy0lgmhH37wACIAADlp-MDqz9QTP0qm_5HgQ",
