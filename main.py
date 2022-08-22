@@ -16,7 +16,7 @@ from pyrogram import __version__ as pyrover
 from pyrogram import filters, idle
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
-from pyrogram.types import Message
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 import config
 import mongo
@@ -47,7 +47,7 @@ async def init():
         await message.reply_text(config.PRIVATE_START_MESSAGE)
         
     @Client.on_message(command("donate") & filters.private & ~filters.group & ~filters.edited)
-async def donate_(client: Client, message: Message):
+async def donate_command(client: Client, message: Message):
     await message.reply_sticker(
         sticker="CAACAgIAAx0CVBD5pAACN5VjAqGYgoyg-OXjf0lNy0lgmhH37wACIAADlp-MDqz9QTP0qm_5HgQ",
         caption="""""",
